@@ -21,8 +21,12 @@ vector<pair<int,int>> prims()
 		int node=p.second;
 		int w=p.first;
 		pq.pop();
+
+		// To remove the outdated entries.		
 		if(w>updated_weights[node])
 			continue;
+
+		// To add node into MST_Visited_Set .
 		ans.push_back({node,parent[node]});
 		
 		for(auto x:edges[node]){
@@ -52,4 +56,21 @@ main()
 		cout<<x.first<<" "<<x.second<<"\n";
 	}
 }
+/*
+5 14
+1 2 2
+1 4 6
+2 1 2
+2 3 3
+2 4 8
+2 5 5
+3 2 3
+3 5 7
+4 1 6
+4 1 8
+4 5 9
+5 2 5
+5 3 7
+5 4 9
+*/
 
